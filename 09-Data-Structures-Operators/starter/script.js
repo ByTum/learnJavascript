@@ -51,6 +51,7 @@ console.log(newArr);
 
 console.log(...newArr);
 console.log(1, 2, 7, 8, 9);
+
 /*
 // Destructing Objects
 restaurant.orderDelivery({
