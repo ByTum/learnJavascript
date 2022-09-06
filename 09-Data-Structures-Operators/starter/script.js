@@ -40,17 +40,114 @@ const restaurant = {
       `Order receive! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'Tum');
+console.log('' || 'Tum');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+/*
+// Rest Pattern and Parameters
+// 1) Destructuring
+
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST, because on left side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherfood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherfood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log('weekdays', weekdays);
+
+// 2) fucntions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    //sum = sum + numbers[i];
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(1, 2);
+add(9, 5, 4, 8, 1, 3);
+add(8, 1, 2, 9, 7, 1, 3, 4);
+
+const x = [1, 2, 3];
+add(...x);
+//console.log(x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+*/
+/*
+// The Spread Operator (...)
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+console.log('badNewArr', badNewArr);
 
 const newArr = [1, 2, ...arr];
-console.log(newArr);
+console.log('newArr', newArr);
 
 console.log(...newArr);
 console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables: arrays, string, maps, sets. NOT objects
+const str = 'Naruephon';
+const letters = [...str, '', 'N.'];
+console.log(letters);
+console.log(...str);
+
+// Real world examples
+const ingredients = [
+  // prompt("Let's make pasta! Ingredient 1?"),
+  // prompt('Ingredient 2?'),
+  // prompt('Ingredient 3?'),
+];
+console.log(ingredients);
+
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { founderIn: 2000, ...restaurant, founder: 'Tum' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Naruephon C';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+*/
 
 /*
 // Destructing Objects
